@@ -9,6 +9,6 @@ WORKDIR /code
 COPY --from=builder /root/.local /root/.local
 ADD https://raw.githubusercontent.com/KhvatikG/gpp-flask-test-serv/main/gpp-flask-test-server.py .
 
-EXPOSE 5000:5000
+EXPOSE 5000
 
 CMD ["python", "gpp-flask-test-server.py"]
