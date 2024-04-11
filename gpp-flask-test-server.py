@@ -1,8 +1,11 @@
 from flask import Flask, request, abort, jsonify
 import redis
+import os
 
 app = Flask(__name__)
-r = redis.Redis()
+redis_host = os.getenv('REDIS_HOST', '0.0.0.0')
+redis_port = os.getenv('REDIS_PORT', 6379)
+r = redis.Redis(host=redis_host, port=redis_port)
 
 
 @app.route('/api_v1/<key>', methods=['GET'])
